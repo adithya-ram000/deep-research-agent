@@ -1,0 +1,33 @@
+from dotenv import load_dotenv
+from langchain_google_genai import ChatGoogleGenerativeAI
+
+load_dotenv()
+
+model = ChatGoogleGenerativeAI(
+    model ="gemini-2.5-flash",
+    temperature =0.2,
+)
+
+from langchain_core.prompts import ChatPromptTemplate
+
+prompt =ChatPromptTemplate.from_template(
+    """
+You are an experienced programming instructor.
+Explain{topic}.
+The audience is {audience}.
+Keep the explanation under 200 words.
+Include one simple example.
+End with one interview question.
+"""
+)
+
+formatted_prompt =prompt.invoke(
+    {
+        "topic" :"Depth first search",
+        "audience" :"DSA learners"
+    }
+)
+# print(formatted_prompt)
+
+response =model.invoke(formatted_prompt)
+print(response.content)
