@@ -10,24 +10,58 @@ model = ChatGoogleGenerativeAI(
 
 from langchain_core.prompts import ChatPromptTemplate
 
-prompt =ChatPromptTemplate.from_template(
-    """
-You are an experienced programming instructor.
-Explain{topic}.
-The audience is {audience}.
-Keep the explanation under 200 words.
-Include one simple example.
-End with one interview question.
-"""
+# prompt =ChatPromptTemplate.from_template(
+#     """
+# You are an experienced programming instructor.
+# Explain{topic}.
+# The audience is {audience}.
+# Keep the explanation under 200 words.
+# Include one simple example.
+# End with one interview question.
+# """
+# )
+
+# formatted_prompt =prompt.invoke(
+#     {
+#         "topic" :"Depth first search",
+#         "audience" :"DSA learners"
+#     }
+# )
+# # print(formatted_prompt)
+
+# response =model.invoke(formatted_prompt)
+# print(response.content)
+
+
+from langchain_core.messages import (
+    SystemMessage,
+    HumanMessage,
 )
 
-formatted_prompt =prompt.invoke(
-    {
-        "topic" :"Depth first search",
-        "audience" :"DSA learners"
-    }
-)
-# print(formatted_prompt)
+messages =[
+    SystemMessage(
+        content= "You are an experienced programming instructor."
+    ),
+    HumanMessage(
+        
+    )
+]
 
-response =model.invoke(formatted_prompt)
-print(response.content)
+while True:
+    user_input =input("You: ")
+    if user_input =="exit":
+        break
+    messages.append(
+        HumanMessage{
+            content =user_input
+        }
+    )
+    response =model.invoke(messages)
+    print("AI:",response.content)
+    messages.append(response)
+
+
+
+
+
+
