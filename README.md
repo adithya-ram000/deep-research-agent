@@ -150,3 +150,39 @@ streamlit run app.py
 6. The Analyst Agent generates a comprehensive research report.
 7. View the report, analysis, and research plan in separate tabs.
 8. Download the generated report as a Markdown file.
+
+
+## 📸 Screenshots
+
+### Home Page
+
+![Home](Screenshots/home.png)
+
+---
+
+### Generating Report
+
+![Loading](Screenshots/loading.png)
+
+---
+
+### Final Report
+
+![Report](Screenshots/report.png)
+
+
+## 🔮 Future Improvements
+
+* Add Retrieval-Augmented Generation (RAG) using ChromaDB.
+* Support PDF and DOCX report export.
+* Execute research tasks in parallel for faster report generation.
+* Add support for multiple LLM providers.
+* Deploy the application using Streamlit Community Cloud.
+* Maintain research history and previous reports.
+* Add citation verification and source ranking.
+
+## 👨‍💻 Author
+
+**Adithya Ram**
+
+- GitHub: https://github.com/adithya-ram000
